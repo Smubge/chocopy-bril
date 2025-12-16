@@ -1,0 +1,456 @@
+{
+  "functions": [
+    {
+      "name": "sqrt",
+      "args": [
+        {
+          "name": "s",
+          "type": "int"
+        }
+      ],
+      "instrs": [
+        {
+          "op": "const",
+          "dest": "t0",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "op": "le",
+          "dest": "t1",
+          "type": "bool",
+          "args": [
+            "s",
+            "t0"
+          ]
+        },
+        {
+          "op": "br",
+          "args": [
+            "t1"
+          ],
+          "labels": [
+            "then_0",
+            "else_1"
+          ]
+        },
+        {
+          "label": "then_0"
+        },
+        {
+          "op": "ret",
+          "args": [
+            "s"
+          ]
+        },
+        {
+          "op": "jmp",
+          "labels": [
+            "end_2"
+          ]
+        },
+        {
+          "label": "else_1"
+        },
+        {
+          "op": "jmp",
+          "labels": [
+            "end_2"
+          ]
+        },
+        {
+          "label": "end_2"
+        },
+        {
+          "op": "const",
+          "dest": "t2",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "op": "div",
+          "dest": "t3",
+          "type": "int",
+          "args": [
+            "s",
+            "t2"
+          ]
+        },
+        {
+          "op": "id",
+          "dest": "x0",
+          "type": "int",
+          "args": [
+            "t3"
+          ]
+        },
+        {
+          "op": "div",
+          "dest": "t4",
+          "type": "int",
+          "args": [
+            "s",
+            "x0"
+          ]
+        },
+        {
+          "op": "add",
+          "dest": "t5",
+          "type": "int",
+          "args": [
+            "x0",
+            "t4"
+          ]
+        },
+        {
+          "op": "const",
+          "dest": "t6",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "op": "div",
+          "dest": "t7",
+          "type": "int",
+          "args": [
+            "t5",
+            "t6"
+          ]
+        },
+        {
+          "op": "id",
+          "dest": "x1",
+          "type": "int",
+          "args": [
+            "t7"
+          ]
+        },
+        {
+          "label": "loop_3"
+        },
+        {
+          "op": "lt",
+          "dest": "t8",
+          "type": "bool",
+          "args": [
+            "x1",
+            "x0"
+          ]
+        },
+        {
+          "op": "br",
+          "args": [
+            "t8"
+          ],
+          "labels": [
+            "body_4",
+            "end_5"
+          ]
+        },
+        {
+          "label": "body_4"
+        },
+        {
+          "op": "id",
+          "dest": "x0",
+          "type": "int",
+          "args": [
+            "x1"
+          ]
+        },
+        {
+          "op": "div",
+          "dest": "t9",
+          "type": "int",
+          "args": [
+            "s",
+            "x0"
+          ]
+        },
+        {
+          "op": "add",
+          "dest": "t10",
+          "type": "int",
+          "args": [
+            "x0",
+            "t9"
+          ]
+        },
+        {
+          "op": "const",
+          "dest": "t11",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "op": "div",
+          "dest": "t12",
+          "type": "int",
+          "args": [
+            "t10",
+            "t11"
+          ]
+        },
+        {
+          "op": "id",
+          "dest": "x1",
+          "type": "int",
+          "args": [
+            "t12"
+          ]
+        },
+        {
+          "op": "jmp",
+          "labels": [
+            "loop_3"
+          ]
+        },
+        {
+          "label": "end_5"
+        },
+        {
+          "op": "ret",
+          "args": [
+            "x0"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "quadratic",
+      "args": [
+        {
+          "name": "a",
+          "type": "int"
+        },
+        {
+          "name": "b",
+          "type": "int"
+        },
+        {
+          "name": "c",
+          "type": "int"
+        }
+      ],
+      "instrs": [
+        {
+          "op": "mul",
+          "dest": "t0",
+          "type": "int",
+          "args": [
+            "b",
+            "b"
+          ]
+        },
+        {
+          "op": "const",
+          "dest": "t1",
+          "type": "int",
+          "value": 4
+        },
+        {
+          "op": "mul",
+          "dest": "t2",
+          "type": "int",
+          "args": [
+            "t1",
+            "a"
+          ]
+        },
+        {
+          "op": "mul",
+          "dest": "t3",
+          "type": "int",
+          "args": [
+            "t2",
+            "c"
+          ]
+        },
+        {
+          "op": "sub",
+          "dest": "t4",
+          "type": "int",
+          "args": [
+            "t0",
+            "t3"
+          ]
+        },
+        {
+          "op": "call",
+          "dest": "t5",
+          "type": "int",
+          "func": "sqrt",
+          "args": [
+            "t4"
+          ]
+        },
+        {
+          "op": "id",
+          "dest": "Y",
+          "type": "int",
+          "args": [
+            "t5"
+          ]
+        },
+        {
+          "op": "const",
+          "dest": "t6",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "op": "sub",
+          "dest": "t7",
+          "type": "int",
+          "args": [
+            "t6",
+            "b"
+          ]
+        },
+        {
+          "op": "id",
+          "dest": "X",
+          "type": "int",
+          "args": [
+            "t7"
+          ]
+        },
+        {
+          "op": "add",
+          "dest": "t8",
+          "type": "int",
+          "args": [
+            "X",
+            "Y"
+          ]
+        },
+        {
+          "op": "const",
+          "dest": "t9",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "op": "mul",
+          "dest": "t10",
+          "type": "int",
+          "args": [
+            "t9",
+            "a"
+          ]
+        },
+        {
+          "op": "div",
+          "dest": "t11",
+          "type": "int",
+          "args": [
+            "t8",
+            "t10"
+          ]
+        },
+        {
+          "op": "print",
+          "args": [
+            "t11"
+          ]
+        },
+        {
+          "op": "sub",
+          "dest": "t12",
+          "type": "int",
+          "args": [
+            "X",
+            "Y"
+          ]
+        },
+        {
+          "op": "const",
+          "dest": "t13",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "op": "mul",
+          "dest": "t14",
+          "type": "int",
+          "args": [
+            "t13",
+            "a"
+          ]
+        },
+        {
+          "op": "div",
+          "dest": "t15",
+          "type": "int",
+          "args": [
+            "t12",
+            "t14"
+          ]
+        },
+        {
+          "op": "print",
+          "args": [
+            "t15"
+          ]
+        },
+        {
+          "op": "ret"
+        }
+      ]
+    },
+    {
+      "name": "start",
+      "args": [],
+      "instrs": [
+        {
+          "op": "const",
+          "dest": "t0",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "op": "const",
+          "dest": "t1",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "op": "const",
+          "dest": "t2",
+          "type": "int",
+          "value": 3
+        },
+        {
+          "op": "call",
+          "dest": "t3",
+          "type": "int",
+          "func": "quadratic",
+          "args": [
+            "t0",
+            "t1",
+            "t2"
+          ]
+        },
+        {
+          "op": "ret"
+        }
+      ]
+    },
+    {
+      "name": "main",
+      "args": [],
+      "instrs": [
+        {
+          "op": "call",
+          "dest": "t0",
+          "type": "int",
+          "func": "start",
+          "args": []
+        },
+        {
+          "op": "ret"
+        }
+      ]
+    }
+  ]
+}
